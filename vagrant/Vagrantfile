@@ -1,0 +1,51 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  os = "bento/ubuntu-16.04"
+  ip = "192.168.10.11"
+  vm_name = "salt-master"
+  vm_hostname = "#{vm_name}.local"
+  vm_memory = 1024
+  vm_cpus = 1
+
+  config.vm.define :salt_master, primary: true do |master_config|
+    # Basic VM parameters
+    master_config.vm.box = "#{os}"
+    master_config.vm.host_name = "#{vm_hostname}"
+
+    # Network settings 
+    # master_config.vm.network "private_network", ip: "${ip}"
+    # master_config.vm.network "forwarded_port", guest: 4505, host: 4505, protocol: "tcp"
+    # master_config.vm.network "forwarded_port", guest: 4506, host: 4506, protocol: "tcp"
+
+    # Synced folders
+    master_config.vm.synced_folder "saltstack/salt", "/srv/salt"
+    master_config.vm.synced_folder "saltstack/pillar", "/srv/pillar"
+
+    # Installing Salt Master
+    master_config.vm.provision "salt_install", type: "shell", inline: <<-SHELL
+      wget --quiet -O - https://repo.saltstack.com/apt/ubuntu/16.04/amd64/latest/SALTSTACK-GPG-KEY.pub | sudo apt-key add -
+      sudo sh -c "echo 'deb http://repo.saltstack.com/apt/ubuntu/16.04/amd64/latest xenial main' > /etc/apt/sources.list.d/saltstack.list"
+      sudo apt-get update
+      sudo apt-get install salt-master salt-ssh -y
+    SHELL
+
+    # Copying RSA key to guest, make sure to move it into the below folder on your host first!
+    master_config.vm.provision "copy_rsa_key_to_guest", type: "file",
+      source: "saltstack/etc/pki/salt-ssh.rsa",
+      destination: "/home/vagrant/salt-ssh.rsa"
+
+    # Move RSA on guest to Salt directory
+    master_config.vm.provision "move_rsa_key_on_guest", type: "shell", inline: <<-SHELL
+      salt-ssh "*" test.ping
+      mv /home/vagrant/salt-ssh.rsa /etc/salt/pki/master/ssh/salt-ssh.rsa
+    SHELL
+
+    # VirtualBox parameters
+    master_config.vm.provider "virtualbox" do |vb|
+      vb.memory = vm_memory
+      vb.cpus = vm_cpus
+    end
+  end
+end
