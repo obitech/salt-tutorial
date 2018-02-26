@@ -1,7 +1,7 @@
-resource "aws_security_group" "SaltTutorial" {
-  name = "SaltTutorial"
-  description = "SSH, Salt, HTTP, HTTPS (Anywhere)"
-  vpc_id = "${var.vpcs["default"]}"
+resource "aws_security_group" "user-box" {
+  name = "${var.sg_name}"
+  description = "${var.sg_description}"
+  vpc_id = "${var.vpc}"
 
   # SSH
   ingress {
@@ -33,15 +33,6 @@ resource "aws_security_group" "SaltTutorial" {
   # Salt
   ingress {
     from_port = 4505
-    to_port = 4505
-    protocol = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
-  }
-
-  # Salt
-  ingress {
-    from_port = 4506
     to_port = 4506
     protocol = "tcp"
     cidr_blocks = ["0.0.0.0/0"]

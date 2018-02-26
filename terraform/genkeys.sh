@@ -5,7 +5,7 @@ set -e
 set -o pipefail
 
 N=1
-PREFIX=key
+PREFIX=salt_ssh
 DIR=keys
 
 usage() {
@@ -16,7 +16,7 @@ $ bash genkeys.sh [OPTIONS]
 Options:
     -h              Display this help.
     -n <count>      Specify number of keys you want to generate. Needs to be a digit greater 0. Defaults to 1.
-    -p <prefix>     Specify prefix each key should have as a name (e.g. key-1, key-2, etc.). Can only consist of letters and digits. Defaults to 'key'."
+    -p <prefix>     Specify prefix each key should have as a name (e.g. key-1, key-2, etc.). Can only consist of letters and digits. Defaults to 'salt_ssh'."
 }
 
 while getopts ":hn:p:" o; do
