@@ -37,6 +37,8 @@ Vagrant.configure("2") do |config|
       destination: "/home/vagrant/salt-ssh.rsa"
 
     # Move RSA on guest to Salt directory
+    # NOTE: This doesn't work, key needs to be of name as in AWS console!
+    # => --priv=/path/to/key must be set in Saltfile
     master_config.vm.provision "move_rsa_key_on_guest", type: "shell", inline: <<-SHELL
       salt-ssh "*" test.ping
       mv /home/vagrant/salt-ssh.rsa /etc/salt/pki/master/ssh/salt-ssh.rsa

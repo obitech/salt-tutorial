@@ -35,7 +35,7 @@ while getopts ":hn:p:" o; do
             fi
             ;;
         p )
-            if [[ -n $OPTARG && $OPTARG =~ ^[a-zA-Z0-9]+$ ]]; then
+            if [[ -n $OPTARG && $OPTARG =~ ^[a-zA-Z0-9_-]+$ ]]; then
                 PREFIX=$OPTARG
             else
                 echo "Invalid prefix, cannot contain symbols other than letters and digits."
@@ -72,5 +72,5 @@ for (( i=1; i <= $N; i++ )); do
     ssh-keygen -b 4096 -t rsa -f ./$DIR/$PREFIX-$i -q -N "" -C ""
     mv ./$DIR/$PREFIX-$i ./$DIR/$PREFIX-$i.pem
     chmod 0400 ./$DIR/$PREFIX-$i.pem
-    chmod 0444 ./$DIR/$PREFIX-$i
+    chmod 0444 ./$DIR/$PREFIX-$i.pub
 done
