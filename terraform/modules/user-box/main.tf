@@ -17,7 +17,7 @@ resource "aws_instance" "user" {
   ami = "${var.ami}"
   instance_type = "${var.instance_type}"
   key_name = "${var.key}"
-  security_groups = ["${aws_security_group.user-box.name}"]
+  security_groups = ["${var.sg_name}"]
 
   provisioner "remote-exec" {
     script = "${path.module}/provision/bootstrap.sh"

@@ -25,3 +25,6 @@ variable name_prefix    {}
 
 # Key prefix for SSH keys
 variable key_prefix     {}
+
+# Name of security group
+variable sg_name        {}

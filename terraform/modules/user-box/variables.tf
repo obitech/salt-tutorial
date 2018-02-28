@@ -32,11 +32,4 @@ variable ssh_user       {}
 
 ## Optional variables
 # Name for security group
-variable sg_name {
-  default = "SaltTutorial"
-}
-
-# Description for security group
-variable sg_description {
-  default = "SSH, Salt, HTTP, HTTPS (Anywhere)"
-}
+variable sg_name        {}

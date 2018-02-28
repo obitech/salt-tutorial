@@ -1,7 +1,7 @@
-VARSFILE=vars.tfvars
+VARSFILE=terraform.tfvars
 TF=terraform
-KEYS_N=3
-KEYS_PREFIX=key
+KEYS_N=2
+KEYS_PREFIX=salt_ssh
 
 full: genkeys apply
 
@@ -14,5 +14,6 @@ apply:
 plan: 
 	$(TF) plan -var-file=$(VARSFILE)
 
-destroy:
+clean:
 	$(TF) destroy -var-file=$(VARSFILE)
+	rm -rf keys/*

@@ -1,7 +1,7 @@
-resource "aws_security_group" "user-box" {
+resource "aws_security_group" "salt_tutorial" {
   name = "${var.sg_name}"
-  description = "${var.sg_description}"
-  vpc_id = "${var.vpc}"
+  description = "SSH, Salt, HTTP, HTTPS (Anywhere)"
+  vpc_id = "${var.vpcs["default"]}"
 
   # SSH
   ingress {
