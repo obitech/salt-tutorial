@@ -7,7 +7,12 @@
 - Remote execution
     - Target, module function, arguments
 - Execution Modules
-- Formulas States
+- States
+    - Formula
+    - State file
+    - State
+    - State Declaration
+    - State Functions
 - Grains
 - Pillar
 - Top file
