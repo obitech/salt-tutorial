@@ -3,5 +3,7 @@
 # See: https://docs.saltstack.com/en/latest/ref/cli/salt-ssh.html
 
 # salt-ssh:
-#   config_dir:   # Set the destination of your config dir
-#   roster_file:  # Set the destination of your roster file
+#  # Set the destination of your config dir
+#   config_dir:
+#  # Set the destination of your roster file
+#   roster_file:  
