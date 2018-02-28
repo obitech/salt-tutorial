@@ -11,15 +11,6 @@ variable vpcs           {type = "map"}
 # Set your AWS instance type
 variable instance_type  {}
 
-# AWS AMI
-variable ami            {type = "map"}
-
-# Set the number of instances you want for each user
-variable count          {}
-
-# Username to log into instance
-variable ssh_user       {}
-
 # Name prefix for module names
 variable name_prefix    {}
 
@@ -28,3 +19,11 @@ variable key_prefix     {}
 
 # Name of security group
 variable sg_name        {}
+
+# Ubuntu related map
+# Keys: count, ami, ssh_user
+variable ubuntu         {type = "map"}
+
+# Amazon Linux related map
+# Keys: count, ami, ssh_user
+variable amazon-linux   {type = "map"}

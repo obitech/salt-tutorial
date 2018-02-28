@@ -1,35 +1,33 @@
 ## Required variables
 # Name for the invocation of this module
-variable name           {}
+variable name                 {}
 
 # AWS region
-variable region         {}
+variable region               {}
 
 # AWS access key
-variable access_key     {}
+variable access_key           {}
 
 # AWS secret key
-variable secret_key     {}
+variable secret_key           {}
 
 # AWS VPC ID
-variable vpc            {}
-
-# AWS AMI
-variable ami            {}
+variable vpc                  {}
 
 # AWS instance type
-variable instance_type  {}
+variable instance_type        {}
 
 # Name of keypair
-variable key            {}
+variable key                  {}
 
-# Number of instances for this module invocation
-variable count          {}
+# Ubuntu related map
+# Keys: count, ami, ssh_user
+variable ubuntu               {type = "map"}
 
-# Username to login to instance
-variable ssh_user       {}
-
+# Amazon Linux related map
+# Keys: count, ami, ssh_user
+variable amazon-linux         {type = "map"}
 
 ## Optional variables
 # Name for security group
-variable sg_name        {}
+variable sg_name              {}

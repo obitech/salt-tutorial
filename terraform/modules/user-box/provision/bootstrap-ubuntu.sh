@@ -9,6 +9,7 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get -y \
 
 # Set locales
 sudo sh -c "echo -e 'LANG=en_US.UTF-8\nLC_ALL=en_US.UTF-8' > /etc/default/locale"
+sudo sh -c "echo -e 'LANG=en_US.UTF-8\nLC_ALL=en_US.UTF-8' > /etc/environment"
 
 # Install packages
 sudo apt-get install -y python python3 python-pip python3-pip vim
