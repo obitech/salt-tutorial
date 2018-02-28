@@ -12,7 +12,7 @@ variable vpcs           {type = "map"}
 variable instance_type  {}
 
 # AWS AMI
-variable ami            {}
+variable ami            {type = "map"}
 
 # Set the number of instances you want for each user
 variable count          {}

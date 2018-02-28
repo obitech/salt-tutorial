@@ -3,7 +3,7 @@ module "user-1" {
   name = "${var.name_prefix}-1"
   key = "${var.key_prefix}-1"
   count = "${var.count}"
-  ami = "${var.ami}"
+  ami = "${var.ami["ubuntu"]}"
   instance_type = "${var.instance_type}"
   region = "${var.region}"
   access_key = "${var.access_key}"
