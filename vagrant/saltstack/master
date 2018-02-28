@@ -1,0 +1,7 @@
+file_roots:
+  base:
+    -  # Set this to the directory where your states are stored
+
+pillar_roots:
+  base:
+    -  # Set this to the directory where your pillars are stored

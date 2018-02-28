@@ -1,0 +1,7 @@
+minion1:
+  host:   # Enter IP or DNS name of your target
+  user:   # Enter username for Salt to log into
+
+  # passwd: # Password to log into SSH, if omitted will use private key
+  # priv:   # Optional, File path to your private key
+  # sudo:   # Optional, all commands will be run as sudo. Make sure passwordless sudo is enabled for the above user

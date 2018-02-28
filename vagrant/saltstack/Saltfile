@@ -1,0 +1,7 @@
+# The Saltfile allows commands to be passed to the `salt-ssh` command
+# See: https://docs.saltstack.com/en/latest/topics/ssh/#define-cli-options-with-saltfile
+# See: https://docs.saltstack.com/en/latest/ref/cli/salt-ssh.html
+
+# salt-ssh:
+#   config_dir:   # Set the destination of your config dir
+#   roster_file:  # Set the destination of your roster file
