@@ -1,0 +1,8 @@
+# Start with: docker-compose run salt bash
+version: "3"
+services:
+  salt:
+    container_name: salt
+    image: obitech/salt:latest
+    volumes:
+      - "./data/salt-ssh:/salt-ssh"
