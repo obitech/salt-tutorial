@@ -1,7 +1,7 @@
 resource "aws_security_group" "salt_tutorial" {
   name = "${var.sg_name}"
-  description = "SSH, Salt, HTTP, HTTPS (Anywhere)"
-  vpc_id = "${var.vpcs["default"]}"
+  description = "${var.sg_desc}"
+  vpc_id = "${var.vpc}"
 
   # SSH
   ingress {
