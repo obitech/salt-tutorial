@@ -2,7 +2,7 @@
 ## Participate
 ### Vagrant & VirtualBox
 1. Install [Vagrant >= 2.0](https://www.vagrantup.com/)
-2. Install VirtualBox >= 5.2](https://www.virtualbox.org/)
+2. Install [VirtualBox >= 5.2](https://www.virtualbox.org/)
 3. Clone this repo
 5. `cd` into `vagrant/`
 6. Run `vagrant up`
